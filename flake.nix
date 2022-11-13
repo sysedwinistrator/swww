@@ -19,6 +19,8 @@
       in rec {
         # For `nix build` & `nix run`:
         defaultPackage = naersk'.buildPackage {
+          nativeBuildInputs = with pkgs; [ pkg-config ];
+          buildInputs = with pkgs; [ libxkbcommon ];
           src = ./.;
         };
 
